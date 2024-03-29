@@ -1,10 +1,6 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) 
 
-# 🏠 Predicting Property Prices Using Webscraped Data from Zoopla 📈
 
-## 🦉 Overview
-
-This was a solo project completed in the evenings across 4 weeks whilst studying on the General Assembly Data Science Immersive bootcamp. The brief was to select a dataset and to utilise a subset of the data science skills trained during the course. This README discusses the problem, hypothesis, methodology and conclusions made.
+# 🏠 Predicting Housing Prices Using Webscraped Data from Zoopla 📈
 
 
 ## Repository Contents
@@ -13,9 +9,6 @@ This was a solo project completed in the evenings across 4 weeks whilst studying
 - Images
 - Models
 - ReadMe
-
-n.b. data files have not been included
-
 
 ## ⚠️ Problem Statement ⚠️
 
@@ -29,7 +22,8 @@ The aim of this project is to see if I can predict a property's price based on c
 
 ### ⌛️ What was achieved? 🎉
 
-Ultimately, I managed to create a reliable Python web scraper to collect many of the previously sold properties listed on Zoopla and created models that capture most of a property's value (best R2 of 0.77) from its location along with other predictive characteristics, such as, number of bedrooms and bathrooms.
+
+In the end, I successfully developed a robust Python web scraper capable of gathering extensive data on previously sold properties listed on Zoopla. Additionally, I constructed models that effectively capture a significant portion of a property's value, achieving a commendable R-squared value of 0.77. These models leverage various predictive features, including the property's location, number of bedrooms, 
 
 ## Hypothesis
 
@@ -37,10 +31,9 @@ Ultimately, I managed to create a reliable Python web scraper to collect many of
 
 ☑️ Objectives
 ------
-1. Collect a broad dataset from Zoopla.co.uk of historical prices and any relevant details about those properties
-2. Create a price prediction model based on the dataset which will accurately predict the agreed sale price for a given property.
-3. Use this tool to identify properties which are currently listed for sale and which may be undervalued.
-
+* Gather a comprehensive dataset from Zoopla.co.uk containing historical pricing information and pertinent details regarding those properties.
+* Develop a price prediction model utilizing the collected dataset to accurately forecast the agreed sale price for a given property.
+* Employ this tool to identify properties currently listed for sale that might be undervalued, offering potential opportunities for investment or acquisition.
 
 ## 🧺 Data Collection
 
@@ -52,8 +45,8 @@ Ultimately, I managed to create a reliable Python web scraper to collect many of
 - BeautifulSoup
 - Requests
 
- Acquiring data for this project required the use of web scraping techniques. Python's BeautifulSoup library was primarily used to create a crawler which would go to every page of the historical properties listed in a search for 'London'. Information for each listing was collected using the HTML tag structure of the page. My scraper ended up traversing ~35,000 individual pages collecting ~350,000 properties along the way!
-
+ 
+To gather data for this project, I employed web scraping techniques, utilizing Python's BeautifulSoup library as the primary tool. I developed a crawler that systematically visited each page of historical property listings in a search for properties located in 'London'. Data for each listing was extracted using the HTML tag structure of the webpage. Remarkably, my scraper traversed approximately 35,000 individual pages, collecting data on approximately 350,000 properties throughout the process!
 
 <p align="center">
     <img src="assets/zoopla_indexes_2.png" width="300" height=""/>
@@ -61,10 +54,10 @@ Ultimately, I managed to create a reliable Python web scraper to collect many of
 
 **Information gathered for each property included:**
 
-1. the property type (apartment, semi-detached house etc.)
-2. number of bedrooms, bathrooms and lounges
-3. the last sale price and which month and year the sale took place 
-4. the exact address and postcode of the property
+1. Property type (e.g., apartment, semi-detached house, etc.).
+2. Number of bedrooms, bathrooms, and lounges.
+3. Last sale price and the month and year of the sale.
+4. Exact address and postcode of the property.
 
 #### 🪤 Evading Captcha - A VPN Solution 🤖👤👨🏻‍🦰
 
@@ -77,18 +70,20 @@ A common difficulty with web scraping is being blocked by CAPTCHAs. These hide t
 
 **Minimising the disruption** 
 
-To solve this issue, I created some code which upon detecting a CAPTCHA would automatically find the available servers of my VPN provider and then use command line instructions wrapped in Python to switch to a randomly selected VPN server. The webpage is then reloaded and to Zoopla it should appear that an entirely new user in an entirely different country is accessing their website. 🤓
+
+To address this challenge, I devised a solution in the form of code that, upon detecting a CAPTCHA, automatically locates the available servers provided by my VPN service. Subsequently, it utilizes command-line instructions within Python to switch to a randomly selected VPN server. Following this, the webpage is reloaded, thereby presenting Zoopla with the impression that a completely new user from a distinct geographical location is accessing their website. 🤓
 
 ### 🏡 Current Property Listing Data acquisition 💷
 
 A second web scraper was coded to access current property listings again with the Beautiful Soup library but this time also with Selenium. 
 
 ### 🙋🏻‍♀️ What is Selenium? 🤔
-Selenium is a website testing tool which can be co-opted for web scraping too. Unlike Beautiful Soup, it allows programs to actually interact with dynamic parts of a webpage (typically controlled by JavaScript) such as buttons, to reveal hidden content or parts of a page which are loaded in later than the core HTML content. 
+Selenium serves as both a website testing tool and a versatile option for web scraping. Divergent from Beautiful Soup, Selenium facilitates programmatic interaction with dynamic components of webpages, often governed by JavaScript. This capability enables the activation of buttons, uncovering concealed content, or accessing elements loaded asynchronously subsequent to the initial HTML rendering.
 
 ### ⛔️ Scrapping the scrape ⛔️ 
 
-Whilst this method of scraping did yield a program that could automatically click on the required interactable elements of each page, the program would run more slowly than suitable for the timeframe of the project, taking on average 5 - 10 seconds per page. Given the number of pages required to be scraped this would have taken longer than was available. 
+
+Although this scraping approach allowed for automation of clicking on the necessary interactive elements on each page, the program operated at a slower pace than desired for the project's timeframe. On average, it took between 5 to 10 seconds per page to complete. Considering the substantial number of pages slated for scraping, this would have extended the duration beyond the available timeframe.
 
 ## 🧹Data Cleaning & Exploratory Data Analysis (EDA)🔍 
 
@@ -140,8 +135,7 @@ This meant although I had managed to scrape 350,000 properties (out of a total 3
 
 ### 1.📍🗺 Limiting the Data Set to just Bromley and Croydon
 
-I decided to use the data that I had for the project to limit my model to postcodes beginning with BR to CR as corresponded to a contiguous collection of all addresses from Bromley to Croydon in South East London. Whilst this would mean I wouldn't have the one-stop solution for all property purchasers in London that I had hoped for, it wasn't too much of a setback as I could still create a good proof of concept based on this narrower geographical region which I intend to scale up once I have had the 3 weeks or so that I need to run my scraper to collect all 3.5 million London properties! 
-
+I opted to utilize the available data for the project, restricting my model to postcodes starting from BR to CR, encompassing a contiguous range of addresses spanning from Bromley to Croydon in South East London. While this decision meant that I wouldn't achieve the comprehensive solution for all property buyers in London initially envisioned, it didn't pose a significant setback. Instead, I could still develop a robust proof of concept focusing on this narrower geographical region. Furthermore, I plan to expand this model once I allocate approximately three weeks to run my scraper, enabling the collection of data on all 3.5 million London properties.
 
 ### 2. ⛔️⏳**Only include Freehold sales in final dataset**
 
