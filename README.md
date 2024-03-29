@@ -187,11 +187,6 @@ After outlier removal around ~8000 properties remained in my final dataset. I ne
 ![Alt text](assets/mean_median_bar_chart.png?raw=true)
 
 
-### [Tableau Visualisation by location](https://public.tableau.com/app/profile/oscar.mumford/viz/Grouped_area_bromley_croydon_public/AveragePriceDashboard2)
-
-
-To better visualise my data geographically I created dashboards (interactive charts) using Tableau software and shared them online.
-
 #### Spread of addresses colour coding by postcode
 
 These were plotted in Tableau using the geocoded coordinates created earlier.
@@ -199,11 +194,6 @@ These were plotted in Tableau using the geocoded coordinates created earlier.
 ![Alt text](assets/tableau_dots.png?raw=true)
 
 
-#### Interactive dashboard displaying average price by postcode and by number of bedrooms 
-
-[![Alt text](assets/tableau_dashboard.png?raw=true)](https://public.tableau.com/app/profile/oscar.mumford/viz/Grouped_area_bromley_croydon_public/AveragePriceDashboard2)
-
-Please follow the link to interact with my [Tableau Visualisation showing average prices by postcode](https://public.tableau.com/app/profile/oscar.mumford/viz/Grouped_area_bromley_croydon_public/AveragePriceDashboard2) directly where you can control the number of bedrooms and see average prices.
 
 ### Historical Price Change 
 
@@ -319,24 +309,20 @@ Generally the London property market is considered to be mature meaning prices a
 
 
 ###  ⚖️ Too few features ⚙️
+⚖️ Insufficient Features ⚙️
+The limitation of my model stemmed from the lack of available features for modeling. It's widely understood that property valuation relies on numerous factors beyond just the number of rooms; the quality and size of these rooms are significant contributors. While calculating square footage could enhance the model, this information isn't readily accessible in the UK. However, some listings include blueprints in image file format, which could be utilized. Exploring the use of optical character recognition to extract property size from these blueprints could be an interesting avenue to pursue.
 
-My model was limited by the few number of features we could rely upon for modelling. Instinctively most people know that how they value a property will rely on many more factors than merely the number of rooms, the quality and size of those rooms plays a big part. If square footage could be calculated this would go a long way to improving the model. However in the UK this information does not appear to be readily available. On certain listings there are however blue prints included in image file format. It could certainly be interesting to attempt to use a program perhaps using optical character recognition to get the size of the property.
+Additionally, I aim to incorporate more detailed information about the properties and their surroundings from public sources, such as crime statistics obtained through the police API, or determining whether a property is North or South facing using coordinate data.
 
-I also would like to add more granular detail about the properties and their areas from public sources such as crime statistics using the police API or calculate whether a property is North or South facing using coordinate data.
+📈 Lack of Trend Analysis 📉
+This model relied on a static snapshot of prices, considering only properties sold since 2021, assuming a consistent market level. However, property prices fluctuate over time. Therefore, my next step is to apply time-series techniques, such as ARIMA, to model the dataset and capture temporal changes in property prices.
 
-### 📈 Does not take into account trends 📉
-
-For this model I used a snapshot of prices with only those properties sold since 2021 and assumed this reflected a constant level in the market. In reality property prices change over time and I would like next to model my dataset using timeseries techniques (e.g. ARIMA) to see changes over time.
-
-### 🐭 Small Dataset 🔬
-
-The dataset used was relatively small at ~8000 properties. This was because only a few had actually been sold freehold. I am currently working to scrape all 3.5 million properties available on Zoopla which will take an estimated 3 weeks of continuous scraping. I intend to rerun my modelling then to see if this provides a greater predictive power.
+🐭 Small Dataset 🔬
+The dataset used for modeling was relatively small, comprising around 8000 properties, primarily due to the limited number sold freehold. Currently, I'm in the process of scraping data for all 3.5 million properties available on Zoopla, which is estimated to take three weeks of continuous scraping. Once this comprehensive dataset is acquired, I intend to re-run my modeling to assess if it improves predictive power.
 
 
-## ✉️ Contact 📭
-Thanks for taking the time to look at my project!  
 
-If you found it interesting and would like to reach out, the best way to contact me is by [email](mailto:oscaromumford@gmail.com) or for professional enquiries via [LinkedIn](https://www.linkedin.com/in/oscar-mumford/). 
+
 
 
 
